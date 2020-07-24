@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:learning_platform_app/models/slide_model.dart';
 import 'package:learning_platform_app/utils/size_config.dart';
 import 'package:learning_platform_app/widgets/slide_item.dart';
+import 'package:learning_platform_app/widgets/slide_page_dots.dart';
 
 class StartedScreen extends StatefulWidget {
   @override
@@ -37,7 +38,7 @@ class _StartedScreenState extends State<StartedScreen> {
     _pageController.dispose();
   }
 
-  _onPageChanged(int index){
+  _onPageChanged(int index) {
     setState(() {
       _currentPage = index;
     });
@@ -55,18 +56,45 @@ class _StartedScreenState extends State<StartedScreen> {
                 alignment: Alignment.center,
                 child: Padding(
                   padding:
-                      EdgeInsets.only(top: 8 * SizeConfig.heightMultiplier),
+                      EdgeInsets.only(top: 1 * SizeConfig.heightMultiplier),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       Expanded(
-                        child: PageView.builder(
-                          scrollDirection: Axis.horizontal,
-                          controller: _pageController,
-                          onPageChanged: _onPageChanged,
-                          itemCount: slideListArr.length,
-                          itemBuilder: (context, index) => SlideItem(index),
+                        child: Stack(
+                          alignment: AlignmentDirectional.bottomCenter,
+                          children: <Widget>[
+                            PageView.builder(
+                              scrollDirection: Axis.horizontal,
+                              controller: _pageController,
+                              onPageChanged: _onPageChanged,
+                              itemCount: slideListArr.length,
+                              itemBuilder: (context, index) => SlideItem(index),
+                            ),
+                            Stack(
+                              alignment: AlignmentDirectional.topStart,
+                              children: <Widget>[
+                                Container(
+                                  margin: EdgeInsets.only(
+                                      bottom: SizeConfig.heightMultiplier),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      for (int i = 0;
+                                          i < slideListArr.length;
+                                          i++)
+                                        if (i == _currentPage)
+                                          SlidePageDots(true)
+                                        else
+                                          SlidePageDots(false)
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
                         ),
                       ),
                       SizedBox(height: 3 * SizeConfig.heightMultiplier),

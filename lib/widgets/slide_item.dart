@@ -35,8 +35,8 @@ class SlideItem extends StatelessWidget {
               padding: EdgeInsets.symmetric(
                   vertical: 1 * SizeConfig.heightMultiplier),
               child: Container(
-                width: 80 * SizeConfig.imageSizeMultiplier,
-                height: 80 * SizeConfig.imageSizeMultiplier,
+//                width: 100 * SizeConfig.imageSizeMultiplier,
+//                height: 100 * SizeConfig.imageSizeMultiplier,
                 decoration: BoxDecoration(
                   //shape: BoxShape.circle,
                   image: DecorationImage(
@@ -51,15 +51,13 @@ class SlideItem extends StatelessWidget {
             flex: 1,
             child: Align(
               alignment: Alignment.topCenter,
-              child: FittedBox(
-                child: Padding(
-                  padding:
-                      EdgeInsets.only(bottom: 2 * SizeConfig.heightMultiplier),
-                  child: Text(
-                    slideListArr[index].description,
-                    style: Theme.of(context).textTheme.subtitle2,
-                    textAlign: TextAlign.center,
-                  ),
+              child: Padding(
+                padding:
+                    EdgeInsets.only(bottom: 2 * SizeConfig.heightMultiplier),
+                child: Text(
+                  slideListArr[index].description,
+                  style: Theme.of(context).textTheme.subtitle2,
+                  textAlign: TextAlign.center,
                 ),
               ),
             ),

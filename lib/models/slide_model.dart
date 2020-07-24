@@ -31,17 +31,17 @@ final slideListArr = [
   new SlideModel(
     imagePath: ImagesUtil.homeImage,
     title: Strings.welcomeScreenTitle,
-    description: Strings.welcomeScreenTitle,
+    description: Strings.welcomeScreenSubTitle,
   ),
   new SlideModel(
     imagePath: ImagesUtil.boating,
     title: Strings.welcomeScreenTitle,
-    description: Strings.welcomeScreenTitle,
+    description: Strings.welcomeScreenSubTitle,
   ),
   new SlideModel(
     imagePath: ImagesUtil.cycling,
     title: Strings.welcomeScreenTitle,
-    description: Strings.welcomeScreenTitle,
+    description: Strings.welcomeScreenSubTitle,
   ),
 ];
 
