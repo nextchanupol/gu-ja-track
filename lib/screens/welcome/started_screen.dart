@@ -55,14 +55,18 @@ class StartedScreen extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[
-                    FlatButton(
-                      onPressed: () {},
-                      child: Text('Getting Started'),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8.0)),
-                      color: Theme.of(context).primaryColor,
-                      padding:
-                          EdgeInsets.all(1.8 * SizeConfig.heightMultiplier),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 5 * SizeConfig.heightMultiplier),
+                      child: FlatButton(
+                        onPressed: () {},
+                        child: Text('Getting Started'),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8.0)),
+                        color: Theme.of(context).primaryColor,
+                        padding:
+                            EdgeInsets.all(1.8 * SizeConfig.heightMultiplier),
+                      ),
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
