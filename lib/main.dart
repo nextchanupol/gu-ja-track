@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:learning_platform_app/screens/welcome/started_screen.dart';
 import 'package:learning_platform_app/utils/styling.dart';
 import 'package:learning_platform_app/utils/size_config.dart';
-import 'package:learning_platform_app/pages/welcome/welcome_screen.dart';
+
 
 
 
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
               debugShowCheckedModeBanner: false,
               title: 'Learning Platform Application',
               theme: AppTheme.darkTheme,
-              home: WelcomeScreen(),
+              home: StartedScreen(),
             );
           },
         );

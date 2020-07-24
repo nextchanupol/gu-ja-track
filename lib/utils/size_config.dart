@@ -38,7 +38,10 @@ class SizeConfig {
     widthMultiplier = _blockWidth;
 
     print('_screenWidth $_screenWidth');
-    print('_blockWidth $_blockWidth');
-    print('_blockHeight $_blockHeight');
+    print('_screenHeight $_screenHeight');
+    print('textMultiplier $textMultiplier');
+    print('imageSizeMultiplier $imageSizeMultiplier');
+    print('heightMultiplier $heightMultiplier');
+    print('widthMultiplier $widthMultiplier');
   }
 }

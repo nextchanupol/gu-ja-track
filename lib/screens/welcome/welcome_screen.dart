@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:learning_platform_app/pages/onboarding/onboarding_screen.dart';
+import 'package:learning_platform_app/screens/onboarding/onboarding_screen.dart';
 import 'package:learning_platform_app/utils/images_util.dart';
 import 'package:learning_platform_app/utils/size_config.dart';
 import 'package:learning_platform_app/utils/strings.dart';

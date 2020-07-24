@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:learning_platform_app/pages/onboarding/onboarding_model.dart';
+import 'package:learning_platform_app/screens/onboarding/onboarding_model.dart';
 import 'package:learning_platform_app/utils/size_config.dart';
 import 'package:learning_platform_app/utils/styling.dart';
 
-class OnBoardingScreen extends StatefulWidget {
+class HomeScreen extends StatefulWidget {
   @override
-  _OnBoardingScreenState createState() => _OnBoardingScreenState();
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _OnBoardingScreenState extends State<OnBoardingScreen> {
+class _HomeScreenState extends State<HomeScreen> {
   List<OnBoardingModel> onBoardings = new List<OnBoardingModel>();
   PageController pageController = new PageController(initialPage: 0);
   int currentIndex = 0;
@@ -84,20 +84,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                             : pageIndexIndicator(false)
                     ],
                   ),
-                  FlatButton(
-                    onPressed: () {
-                      print("this is slideIndex: $currentIndex");
-                      pageController.animateToPage(currentIndex + 1,
-                          duration: Duration(milliseconds: 500),
-                          curve: Curves.linear);
-                    },
-                    splashColor: Colors.blue[50],
-                    child: Text(
-                      "NEXT",
-                      style: TextStyle(
-                          color: Color(0xFF0074E4),
-                          fontWeight: FontWeight.w600),
-                    ),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Text('NEXT'),
                   ),
                 ],
               ),
