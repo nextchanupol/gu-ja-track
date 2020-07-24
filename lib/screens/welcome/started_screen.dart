@@ -62,40 +62,7 @@ class _StartedScreenState extends State<StartedScreen> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       Expanded(
-                        child: Stack(
-                          alignment: AlignmentDirectional.bottomCenter,
-                          children: <Widget>[
-                            PageView.builder(
-                              scrollDirection: Axis.horizontal,
-                              controller: _pageController,
-                              onPageChanged: _onPageChanged,
-                              itemCount: slideListArr.length,
-                              itemBuilder: (context, index) => SlideItem(index),
-                            ),
-                            Stack(
-                              alignment: AlignmentDirectional.topStart,
-                              children: <Widget>[
-                                Container(
-                                  margin: EdgeInsets.only(
-                                      bottom: SizeConfig.heightMultiplier),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: <Widget>[
-                                      for (int i = 0;
-                                          i < slideListArr.length;
-                                          i++)
-                                        if (i == _currentPage)
-                                          SlidePageDots(true)
-                                        else
-                                          SlidePageDots(false)
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
+                        child: buildPageViewOnBoarding(),
                       ),
                       SizedBox(height: 3 * SizeConfig.heightMultiplier),
                       Column(
@@ -104,15 +71,7 @@ class _StartedScreenState extends State<StartedScreen> {
                           Padding(
                             padding: EdgeInsets.symmetric(
                                 horizontal: 5 * SizeConfig.heightMultiplier),
-                            child: FlatButton(
-                              onPressed: () {},
-                              child: Text('Getting Started'),
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8.0)),
-                              color: Theme.of(context).primaryColor,
-                              padding: EdgeInsets.all(
-                                  1.8 * SizeConfig.heightMultiplier),
-                            ),
+                            child: buildGetStartedFlatButton(context),
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -137,6 +96,50 @@ class _StartedScreenState extends State<StartedScreen> {
           ],
         ),
       ),
+    );
+  }
+
+  Stack buildPageViewOnBoarding() {
+    return Stack(
+      alignment: AlignmentDirectional.bottomCenter,
+      children: <Widget>[
+        PageView.builder(
+          scrollDirection: Axis.horizontal,
+          controller: _pageController,
+          onPageChanged: _onPageChanged,
+          itemCount: slideListArr.length,
+          itemBuilder: (context, index) => SlideItem(index),
+        ),
+        Stack(
+          alignment: AlignmentDirectional.topStart,
+          children: <Widget>[
+            Container(
+              margin: EdgeInsets.only(bottom: SizeConfig.heightMultiplier),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  for (int i = 0; i < slideListArr.length; i++)
+                    if (i == _currentPage)
+                      SlidePageDots(true)
+                    else
+                      SlidePageDots(false)
+                ],
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+
+  FlatButton buildGetStartedFlatButton(BuildContext context) {
+    return FlatButton(
+      onPressed: () {},
+      child: Text('Getting Started'),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
+      color: Theme.of(context).primaryColor,
+      padding: EdgeInsets.all(1.8 * SizeConfig.heightMultiplier),
     );
   }
 }
