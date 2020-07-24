@@ -10,10 +10,14 @@ class StartedScreen extends StatelessWidget {
       body: SafeArea(
         child: Container(
           child: Padding(
-            padding: EdgeInsets.all(3 * SizeConfig.heightMultiplier),
+            padding:
+                EdgeInsets.symmetric(vertical: 1 * SizeConfig.heightMultiplier),
             child: Column(
+              mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 Expanded(
+                  flex: 3,
                   child: Column(
                     children: <Widget>[
                       Container(
@@ -26,15 +30,23 @@ class StartedScreen extends StatelessWidget {
                               fit: BoxFit.cover),
                         ),
                       ),
-                      SizedBox(height: 6 * SizeConfig.heightMultiplier),
-                      Text(
-                        'Title',
-                        style: Theme.of(context).textTheme.headline6,
+//                      SizedBox(height: 6 * SizeConfig.heightMultiplier),
+                      Padding(
+                        padding: EdgeInsets.only(
+                            bottom: 1 * SizeConfig.heightMultiplier),
+                        child: Text(
+                          'Title',
+                          style: Theme.of(context).textTheme.headline6,
+                        ),
                       ),
-                      SizedBox(height: 1.5 * SizeConfig.heightMultiplier),
-                      Text(
-                        'Title',
-                        style: Theme.of(context).textTheme.subtitle2,
+//                      SizedBox(height: 1.5 * SizeConfig.heightMultiplier),
+                      Padding(
+                        padding: EdgeInsets.only(
+                            bottom: 0.5 * SizeConfig.heightMultiplier),
+                        child: Text(
+                          'Title',
+                          style: Theme.of(context).textTheme.subtitle2,
+                        ),
                       ),
                     ],
                   ),
