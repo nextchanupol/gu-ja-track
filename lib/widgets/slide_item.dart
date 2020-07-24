@@ -34,9 +34,16 @@ class SlideItem extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.symmetric(
                   vertical: 1 * SizeConfig.heightMultiplier),
-              child: Image.asset(
-                slideListArr[index].imagePath,
-                fit: BoxFit.fill,
+              child: Container(
+                width: 80 * SizeConfig.imageSizeMultiplier,
+                height: 80 * SizeConfig.imageSizeMultiplier,
+                decoration: BoxDecoration(
+                  //shape: BoxShape.circle,
+                  image: DecorationImage(
+                    image: AssetImage(slideListArr[index].imagePath),
+                    fit: BoxFit.fill,
+                  ),
+                ),
               ),
             ),
           ),

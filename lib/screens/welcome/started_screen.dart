@@ -1,13 +1,47 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:learning_platform_app/models/slide_model.dart';
-import 'package:learning_platform_app/utils/images_util.dart';
 import 'package:learning_platform_app/utils/size_config.dart';
-import 'package:learning_platform_app/utils/strings.dart';
-import 'package:learning_platform_app/utils/styling.dart';
 import 'package:learning_platform_app/widgets/slide_item.dart';
 
-class StartedScreen extends StatelessWidget {
+class StartedScreen extends StatefulWidget {
+  @override
+  _StartedScreenState createState() => _StartedScreenState();
+}
+
+class _StartedScreenState extends State<StartedScreen> {
+  int _currentPage = 0;
   final PageController _pageController = new PageController(initialPage: 0);
+
+  @override
+  void initState() {
+    super.initState();
+    Timer.periodic(Duration(seconds: 5), (Timer timer) {
+      if (_currentPage < 2) {
+        _currentPage++;
+      } else {
+        _currentPage = 0;
+      }
+
+      _pageController.animateToPage(
+        _currentPage,
+        duration: Duration(milliseconds: 300),
+        curve: Curves.easeIn,
+      );
+    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _pageController.dispose();
+  }
+
+  _onPageChanged(int index){
+    setState(() {
+      _currentPage = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +55,7 @@ class StartedScreen extends StatelessWidget {
                 alignment: Alignment.center,
                 child: Padding(
                   padding:
-                      EdgeInsets.only(top: 4 * SizeConfig.heightMultiplier),
+                      EdgeInsets.only(top: 8 * SizeConfig.heightMultiplier),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -30,6 +64,7 @@ class StartedScreen extends StatelessWidget {
                         child: PageView.builder(
                           scrollDirection: Axis.horizontal,
                           controller: _pageController,
+                          onPageChanged: _onPageChanged,
                           itemCount: slideListArr.length,
                           itemBuilder: (context, index) => SlideItem(index),
                         ),
