@@ -211,7 +211,7 @@ class _LoginPageState extends State<LoginScreen> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Padding(
-          padding: EdgeInsets.only(top: 40),
+          padding: EdgeInsets.symmetric(vertical: SizeConfig.heightMultiplier * 3),
           child: FlatButton(
             onPressed: () {},
             child: RichText(
@@ -228,7 +228,7 @@ class _LoginPageState extends State<LoginScreen> {
                   text: 'Sign Up',
                   style: TextStyle(
                     color: AppTheme.mainColor,
-                    fontSize: MediaQuery.of(context).size.height / 40,
+                    fontSize: SizeConfig.heightMultiplier * 2.5,
                     fontWeight: FontWeight.bold,
                   ),
                 )
