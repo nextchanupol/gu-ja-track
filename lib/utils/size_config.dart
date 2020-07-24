@@ -15,6 +15,10 @@ class SizeConfig {
   static bool isMobilePortrait = false;
 
   void init(BoxConstraints constraints, Orientation orientation) {
+
+    // MediaQuery.of(context).size.height
+    // MediaQuery.of(context).size.width
+
     if (orientation == Orientation.portrait) {
       _screenWidth = constraints.maxWidth;
       _screenHeight = constraints.maxHeight;

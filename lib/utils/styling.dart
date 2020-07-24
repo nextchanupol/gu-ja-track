@@ -5,8 +5,9 @@ import 'package:learning_platform_app/utils/size_config.dart';
 class AppTheme {
   AppTheme._();
 
-  static const Color appBackgroundColor = Color(0xFFFFF7EC);
-  static const Color primaryButtonColor = Color(0xFFFF4500);
+  static const Color mainColor = Color(0xFF2470C7);
+  static const Color appBackgroundColor = Color(0xFFFFFFFF);
+  static const Color primaryButtonColor = Color(0xFF2470C7);
   static const Color topBarBackgroundColor = Color(0xFFFF4500);
   static const Color selectedTabBackgroundColor = Color(0xFFFFC442);
   static const Color unSelectedTabBackgroundColor = Color(0xFFFFFFFC);

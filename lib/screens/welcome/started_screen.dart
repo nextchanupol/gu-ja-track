@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:learning_platform_app/models/slide_model.dart';
+import 'package:learning_platform_app/screens/login/login_screen.dart';
 import 'package:learning_platform_app/utils/size_config.dart';
 import 'package:learning_platform_app/widgets/slide_item.dart';
 import 'package:learning_platform_app/widgets/slide_page_dots.dart';
@@ -81,7 +82,10 @@ class _StartedScreenState extends State<StartedScreen> {
                                 style: Theme.of(context).textTheme.subtitle2,
                               ),
                               FlatButton(
-                                onPressed: null,
+                                onPressed: () {
+                                  Navigator.of(context)
+                                      .pushNamed(LoginScreen.routeName);
+                                },
                                 child: Text('Login'),
                               ),
                             ],
