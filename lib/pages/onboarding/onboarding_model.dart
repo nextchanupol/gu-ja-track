@@ -47,9 +47,6 @@ List<OnBoardingModel> getOnBoardings() {
   onBoardingModel.setTitle(Strings.welcomeScreenTitle);
   onBoardingModel.setDescription(Strings.welcomeScreenTitle);
   onBoardings.add(onBoardingModel);
-
-
-  onBoardingModel = new OnBoardingModel();
   
   return onBoardings;
 }
